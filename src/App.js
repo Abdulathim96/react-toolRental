@@ -121,7 +121,7 @@ function App() {
   }
 
   const logout = () => {
-    localStorage.removeItem("tokenFilms")
+    localStorage.removeItem("tokenOffers")
     console.log("logout success")
   }
 
