@@ -11,15 +11,13 @@ function AllOffers() {
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button style={{ marginRight: 40, marginBottom: 10 }} onClick={() => setShow(true)} variant="outline-primary">
-          <AddIcon />
+      <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
+        <h4 className="mt-5 mb-4">All offers</h4>
+        <Button style={{ marginRight: 40, marginTop: 50 }} onClick={() => setShow(true)} variant="outline-primary">
+          Add Offer<AddIcon />
         </Button>
       </div>
-      <Row>
-        <h4 className="mt-5 mb-4">All offers</h4>
-      </Row>
-      <Row md={5}>
+      <Row md={1}>
         {offers.map(offer => (
           <OfferItem offer={offer} key={offer._id} />
         ))}

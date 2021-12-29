@@ -10,7 +10,7 @@ function NavbarItem() {
       <Container>
         <Link to="/" className="navbar-brand d-flex align-items-center">
         
-          <span>Tool Rental</span>
+          <span><img src="https://images-platform.99static.com/qiI-1fg8oqxPNKdbOe1J_wd_Lwk=/500x500/top/smart/99designs-contests-attachments/16/16548/attachment_16548926" width={50}/></span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

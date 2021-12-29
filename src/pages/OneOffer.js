@@ -16,9 +16,9 @@ function OneOffer() {
 
   return (
     <>
-      <Row
+      {/* <Row
         style={{
-          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.poster}")`,
+          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.photo} ")`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -43,7 +43,38 @@ function OneOffer() {
           <h3>Overview</h3>
           <p>{offer.description}</p>
         </Col>
-      </Row>
+        
+      </Row> */}
+      <body
+        style={{
+          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.photo} ")`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div class="container height-100 d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+          <div class="card" style={{ width: "380px", border: "none", borderRadius: "0px" }}>
+            {" "}
+            <img
+              width="380"
+              height="220"
+              src={offer.photo}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+            <div class="p-3 content">
+              {" "}
+              <span style={{ color: "blue", fontWeight: "500" }}>{offer.title}</span>
+              <h4>{offer.price} $ For a day</h4>
+              <p style={{ fontSize: "13px" }}>{offer.description}</p>
+            </div>
+          </div>
+        </div>
+      </body>
       {localStorage.tokenOffers ? (
         <>
           <Row className="mt-5">

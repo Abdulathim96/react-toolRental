@@ -12,10 +12,16 @@ function Profile() {
   return (
     <body
       style={{
-        background: "#654ea3",
-        background: "linear-gradient(to right, #e96443, #904e95)",
+        background: "##eee",
+        backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${profile.avatar} ")`,
         minHeight: "100vh",
         overflowX: "hidden",
+        backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          display: "flex",
+          alignItems: "center",
+          color: "white",
       }}
     >
       <div class="row py-5 px-4">
@@ -31,12 +37,12 @@ function Profile() {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div class="media align-items-end profile-head">
-                <div class="profile mr-3">
-                  <img src={profile.avatar} alt="..." width="130" class="rounded mb-2 img-thumbnail" />
+              <div class="media align-items-end profile-head" style={{background:"rgb(15, 14, 14)"}} >
+                <div class="profile mr-3" >
+                  <img src={profile.avatar} alt="..." width="130" class="rounded mb-2 img-thumbnail"/>
                 </div>
                 <div class="media-body mb-5 text-white">
-                  <h4 class="mt-0 mb-0">Mark Williams</h4>
+                  <h4 class="mt-0 mb-0">{profile.firstName} {profile.lastName}</h4>
                   <p class="small mb-4">
                     {" "}
                     <i class="fas fa-map-marker-alt mr-2"></i>New York
@@ -45,10 +51,7 @@ function Profile() {
               </div>
             </div>
             <div class="bg-light p-4 d-flex justify-content-end text-center">
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item">
-                  {profile.firstName} {profile.lastName}
-                </li>
+              <ul>
                 <br />
                 <li class="list-inline-item">
                   <small class="font-weight-bold mb-0 d-block">{profile.email}</small>
