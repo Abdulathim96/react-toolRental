@@ -3,7 +3,9 @@ import { Card, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 function MovieItem(props) {
-  const { offer } = props
+  const { offer , inProfile } = props
+  
+
 
   return (
     <body style={{ background: "#eee" }}>

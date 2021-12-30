@@ -95,6 +95,52 @@ function App() {
       else console.log(error)
     }
   }
+  const editOffer = async (e, offerId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+
+      const categorys = []
+      form.elements.categorys.forEach(category => {
+        if (category.checked) {
+          categorys.push(category.value)
+        }
+      })
+
+      const offerBody = {
+        title: form.elements.title.value,
+        description: form.elements.description.value,
+        photo: form.elements.photo.value,
+        price: form.elements.price.value,
+        phoneNumber: form.elements.phoneNumber.value,
+        categorys: categorys,
+      }
+      await axios.put(`http://localhost:5000/api/offers/${offerId}`, offerBody, {
+        headers: {
+          Authorization: localStorage.tokenDashboardOffers,
+        },
+      })
+      getOffers()
+      toast.success("edit success")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+  const deleteOffer = async offerId => {
+    try {
+      await axios.delete(`http://localhost:5000/api/offers/${offerId}`, {
+        headers: {
+          Authorization: localStorage.tokenDashboardOffers,
+        },
+      })
+      toast.success("offer deleted")
+      getOffers()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
 
   const login = async e => {
     e.preventDefault()
@@ -128,6 +174,8 @@ function App() {
   const store = {
     offers,
     addOffer,
+    editOffer,
+    deleteOffer,
     categorys,
     signup,
     login,

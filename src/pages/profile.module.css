@@ -1,0 +1,64 @@
+
+.container {
+    max-width: 93.5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+
+/* Profile Section */
+
+.profile {
+    padding: 5rem 0;
+}
+
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.profileImage {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+    border-radius: 50%;
+
+}
+
+.profile1UserSettings,
+.profileBio {
+    float: left;
+    width: calc(66.666% - 2rem);
+}
+
+.profile1UserSettings{
+    margin-top: 1.1rem;
+}
+
+.profileUserName {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 300;
+}
+
+
+/* Gallery Section */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+}
+
+.galleryItem {
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
