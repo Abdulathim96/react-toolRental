@@ -1,10 +1,14 @@
+import { List } from "@mui/material"
 import { useContext } from "react"
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import FilmsContext from "../utils/ToolRentelContext"
+import ToolRentelContext from "../utils/ToolRentelContext"
 
 function NavbarItem() {
-  const { logout } = useContext(FilmsContext)
+  const { logout,categorys } = useContext(ToolRentelContext)
+
+
+  
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -18,6 +22,11 @@ function NavbarItem() {
             <Link className="nav-link" to="/offers">
               Offers
             </Link>
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">{categorys.map(category => (
+            <List key={category._id} category={category} />
+          ))}</NavDropdown.Item>
+        </NavDropdown> */}
           </Nav>
           {localStorage.tokenOffers ? (
             <Nav className="ms-auto">
