@@ -1,27 +1,21 @@
 import { useContext, useState } from "react"
 import { Row, Button } from "react-bootstrap"
-import OfferItem from "../components/OfferItem"
+import RequestItem from "../components/RequestItem"
 import ToolRentelContext from "../utils/ToolRentelContext"
 import AddIcon from "@mui/icons-material/Add"
-import OfferAddModal from "../components/OfferAddModal"
-import { findDOMNode } from "react-dom"
-import { Category } from "@mui/icons-material"
-// import Sidebar from "../components/Sidebar"
+import RequestAddModal from "../components/RequestAddModal"
 
-
-function AllOffers() {
-  const { offers, categorys } = useContext(ToolRentelContext)
+function AllRequests() {
+  const { requests,categorys } = useContext(ToolRentelContext)
   const [category, setCategory] = useState(null)
   const [show, setShow] = useState(false)
 
-  let offerCategory = offers
-  if (category) offerCategory = offers.filter(offer => offer.categorys.find(c => category == c.name))
+  let requestCategory = requests
+  if (category) requestCategory = requests.filter(request => request.categorys.find(c => category == c.name))
 
   return (
     <>
-      {/* <Sidebar /> */}
-
-      <ul>
+    <ul>
         <li onClick={() => setCategory(null)}>All</li>
 
         {categorys.map(cat => (
@@ -29,20 +23,19 @@ function AllOffers() {
         ))}
       </ul>
       <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
-        <h4 className="mt-5 mb-4">All offers</h4>
+        <h4 className="mt-5 mb-4">All requests</h4>
         <Button style={{ marginRight: 40, marginTop: 50 }} onClick={() => setShow(true)} variant="outline-primary">
-          Add Offer
-          <AddIcon />
+          Add Request<AddIcon />
         </Button>
       </div>
       <Row md={1}>
-        {offerCategory.map(offer => (
-          <OfferItem offer={offer} key={offer._id} />
+        {requests.map(request => (
+          <RequestItem request={request} key={request._id} />
         ))}
       </Row>
-      <OfferAddModal show={show} setShow={setShow} />
+      <RequestAddModal show={show} setShow={setShow} />
     </>
   )
 }
 
-export default AllOffers
+export default AllRequests

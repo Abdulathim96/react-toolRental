@@ -1,65 +1,65 @@
 import { useContext } from "react"
-import { Form, Col, Row, Button } from "react-bootstrap"
+import { Container, Form, Col, Row, Button } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
+import login1Icon from "../assets/login1.png"
+import login2Icon from "../assets/login2.png"
 
 function SignUp() {
   const { signup } = useContext(ToolRentelContext)
 
   return (
-    <div className="ms-4 mt-5">
-      <h1>Sign Up</h1>
-      <Form className="mt-5" onSubmit={signup}>
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="2">
-            First Name
-          </Form.Label>
-          <Col md="6">
-            <Form.Control name="firstName" type="text" required />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="2">
-            Last Name
-          </Form.Label>
-          <Col md="6">
-            <Form.Control type="text" name="lastName" required />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="2">
-            Email
-          </Form.Label>
-          <Col md="6">
-            <Form.Control type="email" name="email" required />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="2">
-            Password
-          </Form.Label>
-          <Col md="6">
-            <Form.Control type="password" name="password" required />
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="2">
-            Image
-          </Form.Label>
-          <Col md="6">
-            <Form.Control type="url" name="avatar" required />
-          </Col>
-        </Form.Group>
+    <>
+      <Container className="mt-5">
         <Row>
-          {/* <Col md="8">{errorSignup !== null ? <Alert variant="danger">{errorSignup}</Alert> : null}</Col> */}
-        </Row>
-        <Form.Group as={Row} className="my-4">
-          <Col md={{ span: 10, offset: 2 }}>
-            <Button type="submit">Sign Up</Button>
+          <Col lg={4} md={6} sm={12} className="text-center mt-5 p-3">
+            <img
+              className="icon-img"
+              style={{
+                width: "70px",
+                height: "70px",
+                marginBottom: "2rem",
+              }}
+              src={login1Icon}
+              alt="icon"
+            />
+            <Form onSubmit={signup}>
+              <Form.Group controlId="formBasicFirstName">
+                <h1>Sign Up</h1>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Control placeholder="First Name" name="firstName" type="text" required />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicLastName">
+                <Form.Control placeholder="last Name" type="text" name="lastName" required />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Control placeholder="Email" type="email" name="email" required />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Control placeholder="password" type="password" name="password" required />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Control placeholder="Avatar" type="url" name="avatar" required />
+              </Form.Group>
+              <Button
+                type="submit"
+                style={{
+                  color: "#fff",
+                  backgroundColor: "#fed03a",
+                  borderColor: "rgb(255, 209, 56) !important",
+                }}
+              >
+                Login
+              </Button>
+            </Form>
           </Col>
-        </Form.Group>
-      </Form>
-    </div>
+          <Col lg={8} md={6} sm={12}>
+            <img className="w-100" src={login2Icon} alt="" />
+          </Col>
+        </Row>
+      </Container>
+    </>
   )
 }
 

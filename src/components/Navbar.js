@@ -5,16 +5,18 @@ import { Link } from "react-router-dom"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
 function NavbarItem() {
-  const { logout,categorys } = useContext(ToolRentelContext)
+  const { logout, categorys } = useContext(ToolRentelContext)
 
-
-  
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Link to="/" className="navbar-brand d-flex align-items-center">
-        
-          <span><img src="https://images-platform.99static.com/qiI-1fg8oqxPNKdbOe1J_wd_Lwk=/500x500/top/smart/99designs-contests-attachments/16/16548/attachment_16548926" width={50}/></span>
+          <span>
+            <img
+              src="https://images-platform.99static.com/qiI-1fg8oqxPNKdbOe1J_wd_Lwk=/500x500/top/smart/99designs-contests-attachments/16/16548/attachment_16548926"
+              width={50}
+            />
+          </span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -22,11 +24,14 @@ function NavbarItem() {
             <Link className="nav-link" to="/offers">
               Offers
             </Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">{categorys.map(category => (
-            <List key={category._id} category={category} />
-          ))}</NavDropdown.Item>
-        </NavDropdown> */}
+            <Link className="nav-link" to="/requests">
+              Requests
+            </Link>
+            <NavDropdown title="Categories" id="basic-nav-dropdown">
+              {categorys.map(category => (
+                <NavDropdown.Item>{category.name}</NavDropdown.Item>
+              ))}
+            </NavDropdown>
           </Nav>
           {localStorage.tokenOffers ? (
             <Nav className="ms-auto">

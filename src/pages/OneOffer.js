@@ -16,35 +16,6 @@ function OneOffer() {
 
   return (
     <>
-      {/* <Row
-        style={{
-          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.photo} ")`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          display: "flex",
-          alignItems: "center",
-          color: "white",
-        }}
-      >
-        <Col md="4">
-          <img variant="top" src={offer.photo} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
-        </Col>
-        <Col md={{ offset: 1 }}>
-          <h1>{offer.title}</h1>
-          <div className="mb-2">
-            {offer.categorys.map(category => (
-              <span>{category.name}</span>
-            ))}
-          </div>
-        </Col>
-
-        <Col>
-          <h3>Overview</h3>
-          <p>{offer.description}</p>
-        </Col>
-        
-      </Row> */}
       <body
         style={{
           backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.photo} ")`,
@@ -75,6 +46,7 @@ function OneOffer() {
           </div>
         </div>
       </body>
+
       {localStorage.tokenOffers ? (
         <>
           <Row className="mt-5">
