@@ -2,102 +2,90 @@ import { Circle } from "@mui/icons-material"
 import { useContext } from "react"
 // import { Col, Container, Row } from "react-bootstrap"
 import OfferItem from "../components/OfferItem"
+import RequestItem from "../components/RequestItem"
 import ToolRentelContext from "../utils/ToolRentelContext"
-// import styles from "./profile.module.css"
+import "./profile.css"
 
 function Profile() {
-  const { profile, offers, image, user, settings, bio, item, userName } = useContext(ToolRentelContext)
+  const { profile, offers, requests , image, user, settings, bio, item, userName } = useContext(ToolRentelContext)
   if (!profile) return <h1>Loading...</h1>
 
   const myoffers = offers.filter(offer => offer.owner._id == profile._id)
+  const myrequests = requests.filter(request => request.owner._id == profile._id)
 
   return (
-    <body>
-      <div
-        style={{
-          maxWidth: "93.5rem",
-          margin: "0 auto",
-          padding: "0 2rem",
-        }}
-      >
-        <div style={{ padding: "5rem 0" }}>
-          <div
-            style={{
-              float: "left",
-              width: "calc(33.333% - 1rem)",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginRight: "3rem",
-              borderRadius: "50%",
-              clipPath: "circle()",
-            }}
-          >
-            <img src={profile.avatar} />
-          </div>
-          <div
-            style={{
-              float: "left",
-              width: "calc(66.666% - 2rem)",
-              marginTop: "1.1rem",
-            }}
-          >
-            <h1
-              style={{
-                display: "inline-block",
-                fontSize: "3.2rem",
-                fontWeight: "300",
-              }}
-            >
-              {profile.firstName} {profile.lastName}
-            </h1>
-          </div>
 
-          <div
-            style={{
-              float: "left",
-              width: "calc(66.666% - 2rem)",
-            }}
-          >
-            <p>{profile.email}</p>
+    <div className="body">
+      <header>
+        <div class="container">
+          <div class="profile">
+            <div class="profile-image">
+              <img
+                src={profile.avatar}
+                alt=""
+                style={{
+                  clipPath: "circle()",
+                  width: "150px",
+                }}
+              />
+            </div>
+
+            <div class="profile-user-settings">
+              <h1 class="profile-user-name">
+                {profile.firstName} {profile.lastName}
+              </h1>
+
+              {/* <button class="btn profile-edit-btn">Edit Profile</button> */}
+
+              {/* <button class="btn profile-settings-btn" aria-label="profile settings">
+                <i class="fas fa-cog" aria-hidden="true"></i>
+              </button> */}
+            </div>
+            {/* <div class="profile-stats">
+              <ul>
+              <li>
+              <span class="profile-stat-count">164</span> posts
+              </li>
+              <li>
+              <span class="profile-stat-count">188</span> followers
+              </li>
+              <li>
+              <span class="profile-stat-count">206</span> following
+              </li>
+              </ul>
+            </div> */}
+
+            <div class="profile-bio">
+              <p class="profile-real-name">{profile.email}</p>
+            </div>
           </div>
         </div>
-      </div>
-      
-
+            <hr />
+      </header>
       <main>
-        <div
-          style={{
-            maxWidth: "93.5rem",
-            margin: "0 auto",
-            padding: "0 2rem",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              margin: "-1rem -1rem",
-              paddingBottom: "3rem",
-            }}
-          >
-            <div
-              style={{
-                position: "relative",
-                flex: "1 0 22rem",
-                margin: "1rem",
-                color: "#fff",
-                cursor: "pointer",
-              }}
-            >
+        <div></div>
+        <div class="container">
+          <div class="gallery">
+            <div class="gallery-item" tabindex="0">
               {myoffers.map(offer => (
                 <OfferItem offer={offer} inProfile={true} />
+              ))}
+            </div>
+
+            <div class="gallery-item" tabindex="0">
+              {/* <img
+                src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop"
+                class="gallery-image"
+                alt=""
+              /> */}
+              {requests.map(request => (
+                <RequestItem request={request} key={request._id} />
               ))}
             </div>
           </div>
         </div>
       </main>
-    </body>
+    </div>
   )
 }
 

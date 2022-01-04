@@ -135,7 +135,7 @@ function App() {
   /**OFFER */
   //________________________________________________________________________________________________________________________.
   /**REQuESTS */
-  const addRequests = async e => {
+  const addRequest = async e => {
     e.preventDefault()
     try {
       const form = e.target
@@ -293,7 +293,7 @@ function App() {
     editOffer,
     deleteOffer,
     requests,
-    addRequests,
+    addRequest,
     editRequests,
     deleteRequests,
     categorys,

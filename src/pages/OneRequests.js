@@ -6,7 +6,7 @@ import ToolRentelContext from "../utils/ToolRentelContext"
 
 function OneRequest() {
   const { requestId } = useParams()
-  const { requests, likeRequest, profile } = useContext(ToolRentelContext)
+  const { requests, profile } = useContext(ToolRentelContext)
 
   if (!profile || requests.length === 0) return <h1>Loading...</h1>
 
@@ -27,7 +27,7 @@ function OneRequest() {
         }}
       >
         <Col md="4">
-          <img variant="top" src={request.poster} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
+          <img variant="top" src={request.photo} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
         </Col>
         <Col md={{ offset: 1 }}>
           <h1>{request.title}</h1>

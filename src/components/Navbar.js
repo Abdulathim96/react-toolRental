@@ -8,15 +8,16 @@ function NavbarItem() {
   const { logout, categorys } = useContext(ToolRentelContext)
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar  variant="dark" expand="lg" style={{backgroundColor: "black",}}>
       <Container>
         <Link to="/" className="navbar-brand d-flex align-items-center">
           <span>
             <img
-              src="https://images-platform.99static.com/qiI-1fg8oqxPNKdbOe1J_wd_Lwk=/500x500/top/smart/99designs-contests-attachments/16/16548/attachment_16548926"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfTEzL4JDi2D-839RRHdluTGQp3jMGYffWmA&usqp=CAU"
               width={50}
             />
           </span>
+           Tool Rental 
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -28,6 +29,7 @@ function NavbarItem() {
               Requests
             </Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
+              
               {categorys.map(category => (
                 <NavDropdown.Item>{category.name}</NavDropdown.Item>
               ))}

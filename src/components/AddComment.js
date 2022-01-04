@@ -4,12 +4,12 @@ import { Col, Form, Button, Row } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
 function AddComment(props) {
-  const { addComment } = useContext(ToolRentelContext)
+  const { addComments } = useContext(ToolRentelContext)
   const { offerId } = props
   return (
     <div className="ms-4">
       <h1>Add Comment</h1>
-      <Form className="mt-5" onSubmit={e => addComment(e, offerId)}>
+      <Form className="mt-5" onSubmit={e => addComments(e, offerId)}>
         <Form.Group as={Row} className="mb-3">
           <Form.Label column md="2">
             Comment

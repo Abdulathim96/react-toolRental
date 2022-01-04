@@ -41,9 +41,9 @@ function MovieItem(props) {
                     class="btn btn-outline-primary btn-sm mt-2"
                     type="button"
                     style={{
-                      backgroundColor: "rgb(255, 201, 0)",
-                      Color: "black",
-                      borderColor: "rgb(255, 201, 0)",
+                      // backgroundColor: "rgb(255, 201, 0)",
+                      // Color: "black",
+                      // borderColor: "rgb(255, 201, 0)",
                     }}
                   >
                     message

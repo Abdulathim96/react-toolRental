@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Row, Button } from "react-bootstrap"
+import { Row, Button, Form } from "react-bootstrap"
 import OfferItem from "../components/OfferItem"
 import ToolRentelContext from "../utils/ToolRentelContext"
 import AddIcon from "@mui/icons-material/Add"
@@ -7,7 +7,6 @@ import OfferAddModal from "../components/OfferAddModal"
 import { findDOMNode } from "react-dom"
 import { Category } from "@mui/icons-material"
 // import Sidebar from "../components/Sidebar"
-
 
 function AllOffers() {
   const { offers, categorys } = useContext(ToolRentelContext)
@@ -20,14 +19,20 @@ function AllOffers() {
   return (
     <>
       {/* <Sidebar /> */}
-
-      <ul>
-        <li onClick={() => setCategory(null)}>All</li>
+      <Form.Select aria-label="Default select example">
+        <option onClick={() => setCategory(null)}>All</option>
 
         {categorys.map(cat => (
-          <li onClick={() => setCategory(cat.name)}>{cat.name}</li>
+          <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
         ))}
-      </ul>
+      </Form.Select>
+      {/* <ul>
+        <option onClick={() => setCategory(null)}>All</option>
+
+        {categorys.map(cat => (
+          <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
+        ))}
+      </ul> */}
       <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
         <h4 className="mt-5 mb-4">All offers</h4>
         <Button style={{ marginRight: 40, marginTop: 50 }} onClick={() => setShow(true)} variant="outline-primary">
@@ -35,6 +40,7 @@ function AllOffers() {
           <AddIcon />
         </Button>
       </div>
+        <hr />
       <Row md={1}>
         {offerCategory.map(offer => (
           <OfferItem offer={offer} key={offer._id} />
