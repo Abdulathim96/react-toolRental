@@ -2,14 +2,14 @@ import { useContext } from "react"
 import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
-function OfferAddModal(props) {
-  const { show, setShow } = props
-  const { categorys, addOffer } = useContext(ToolRentelContext)
+function OfferEditModal(props) {
+  const { show, setShow, offer } = props
+  const { categorys, editOffer } = useContext(ToolRentelContext)
   return (
     <Modal show={show} onHide={() => setShow(false)}>
-      <Form onSubmit={addOffer}>
+      <Form className="mt-5" onSubmit={e => editOffer(e, offer._id)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add offer</Modal.Title>
+          <Modal.Title>Edit Offer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group as={Row} className="mb-3">
@@ -17,7 +17,7 @@ function OfferAddModal(props) {
               Title
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="title" required />
+              <Form.Control type="text" name="title" defaultValue={offer.title} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -25,7 +25,7 @@ function OfferAddModal(props) {
               Description
             </Form.Label>
             <Col md="8">
-              <Form.Control as="textarea" name="description" required />
+              <Form.Control as="textarea" name="description" defaultValue={offer.description} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -33,7 +33,7 @@ function OfferAddModal(props) {
               Photo
             </Form.Label>
             <Col md="8">
-              <Form.Control type="url" name="photo" required />
+              <Form.Control type="url" name="photo" defaultValue={offer.photo} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -41,26 +41,31 @@ function OfferAddModal(props) {
               Price
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="price" />
+              <Form.Control type="number" name="price" defaultValue={offer.price} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
-              phoneNumber
+              Phone Number
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="phoneNumber" required />
+              <Form.Control type="text" name="phoneNumber" defaultValue={offer.phoneNumber} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
-              Category
+              category
             </Form.Label>
             <Col md="8">
               {categorys.map(categoryObject => (
                 <Row>
                   <Col md="2">
-                    <Form.Check type="checkbox" name="categorys" value={categoryObject._id} />
+                    <Form.Check
+                      type="checkbox"
+                      name="categorys"
+                      defaultChecked={offer.categorys.find(categoryOffer => categoryOffer._id === categoryObject._id)}
+                      value={categoryObject._id}
+                    />
                   </Col>
                   <Col md="2">
                     <span>{categoryObject.name}</span>
@@ -74,8 +79,8 @@ function OfferAddModal(props) {
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={() => setShow(false)}>
-            Add offer
+          <Button variant="success" type="submit" onClick={() => setShow(false)}>
+            Confirm Edit
           </Button>
         </Modal.Footer>
       </Form>
@@ -83,4 +88,4 @@ function OfferAddModal(props) {
   )
 }
 
-export default OfferAddModal
+export default OfferEditModal

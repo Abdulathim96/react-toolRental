@@ -1,4 +1,5 @@
 import { List } from "@mui/material"
+import zIndex from "@mui/material/styles/zIndex"
 import { useContext } from "react"
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
@@ -8,7 +9,7 @@ function NavbarItem() {
   const { logout, categorys } = useContext(ToolRentelContext)
 
   return (
-    <Navbar  variant="dark" expand="lg" style={{backgroundColor: "black",}}>
+    <Navbar variant="dark" expand="lg" style={{ backgroundColor: "black", zIndex:"100"}}>
       <Container>
         <Link to="/" className="navbar-brand d-flex align-items-center">
           <span>
@@ -17,7 +18,7 @@ function NavbarItem() {
               width={50}
             />
           </span>
-           Tool Rental 
+          Tool Rental
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -29,9 +30,10 @@ function NavbarItem() {
               Requests
             </Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              
               {categorys.map(category => (
-                <NavDropdown.Item>{category.name}</NavDropdown.Item>
+                <Link to={`/offers?cat=${category.name}`} className="dropdown-item">
+                  {category.name}
+                </Link>
               ))}
             </NavDropdown>
           </Nav>

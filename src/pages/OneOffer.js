@@ -55,7 +55,7 @@ function OneOffer() {
                   <Row>
                     <Row style={{ display: "flex", alignItems: "center" }}>
                       <Col md="1">
-                        <Image src={comment.owner.avatar} width="80px" roundedCircle />
+                        <Image style={{clipPath: "circle()",}} src={comment.owner.avatar} width="80px" roundedCircle />
                       </Col>
                       <Col>
                         {comment.owner.firstName} {comment.owner.lastName}

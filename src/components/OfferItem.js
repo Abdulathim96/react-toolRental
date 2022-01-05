@@ -1,9 +1,15 @@
-import { useState } from "react"
-import { Card, Col } from "react-bootstrap"
+import { useState, useContext } from "react"
+import { Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import ToolRentelContext from "../utils/ToolRentelContext"
+import OfferEditModal from "./OfferEditModal"
+import OfferDeleteModal from "./OfferDeleteModal"
 
-function MovieItem(props) {
+function OfferItem(props) {
   const { offer, inProfile } = props
+  const { deleteOffer } = useContext(ToolRentelContext)
+  const [deleteShow, setDeleteShow] = useState(false)
+  const [editShow, setEditShow] = useState(false)
 
   return (
     <body style={{ background: "#eee" }}>
@@ -33,22 +39,38 @@ function MovieItem(props) {
                 <div class="d-flex flex-row align-items-center">
                   <h4 class="mr-1">{offer.price}$ for one Day</h4>
                 </div>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                    view
-                  </button>
-                  <button
-                    class="btn btn-outline-primary btn-sm mt-2"
-                    type="button"
-                    style={{
-                      // backgroundColor: "rgb(255, 201, 0)",
-                      // Color: "black",
-                      // borderColor: "rgb(255, 201, 0)",
-                    }}
-                  >
-                    message
-                  </button>
-                </div>
+                {inProfile ? (
+                  <div class="d-flex flex-column mt-4">
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button" onClick={() => setEditShow(true)}>
+                      Edit
+                    </button>
+
+                    <button class="btn btn-outline-primary btn-sm mt-2" onClick={() => deleteOffer(offer._id)}>
+                      Delete
+                    </button>
+                    <OfferEditModal show={editShow} setShow={setEditShow} offer={offer} />
+                    <OfferDeleteModal show={deleteShow} setShow={setDeleteShow} offerId={offer._id} />
+                  </div>
+                ) : (
+                  <div class="d-flex flex-column mt-4">
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                      view
+                    </button>
+                    <button
+                      class="btn btn-outline-primary btn-sm mt-2"
+                      type="button"
+                      style={
+                        {
+                          // backgroundColor: "rgb(255, 201, 0)",
+                          // Color: "black",
+                          // borderColor: "rgb(255, 201, 0)",
+                        }
+                      }
+                    >
+                      message
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -58,4 +80,4 @@ function MovieItem(props) {
   )
 }
 
-export default MovieItem
+export default OfferItem

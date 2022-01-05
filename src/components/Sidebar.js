@@ -23,11 +23,22 @@
 // import LogoutIcon from "@mui/icons-material/Logout"
 // import GroupAddIcon from "@mui/icons-material/GroupAdd"
 // import ToolRentelContext from "../utils/ToolRentelContext"
-// import { useContext } from "react"
+// import { useContext,useState,useEffect } from "react"
+// import { useSearchParams } from "react-router-dom"
+
 // const drawerWidth = 240
 
 // export default function PermanentDrawerLeft() {
-//   const { logout } = useContext(ToolRentelContext)
+//   const { logout,categorys } = useContext(ToolRentelContext)
+//   const [category, setCategory] = useState(queryCat || null)
+//   const queryCat = searchParams.get("cat")
+
+//   useEffect(() => {
+//     const queryCat = searchParams.get("cat")
+//     setCategory(queryCat)
+//   }, [searchParams])
+
+
 //   return (
 //     <ThemeProvider
 //       theme={createTheme({
@@ -57,7 +68,17 @@
 //         variant="permanent"
 //         anchor="left"
 //       >
-          
+//           <List>
+//               <ListItem>
+//               <ul>
+//         <option onClick={() => setCategory(null)}>All</option>
+
+//         {categorys.map(cat => (
+//           <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
+//         ))}
+//       </ul>
+//               </ListItem>
+//           </List>
 //         <List>
 //           <ListItem>
 //             <ListItemIcon>
