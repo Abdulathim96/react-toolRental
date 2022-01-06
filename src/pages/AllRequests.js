@@ -29,7 +29,7 @@ function AllRequests() {
         </Button>
       </div>
       <Row md={1}>
-        {requests.map(request => (
+        {requestCategory.map(request => (
           <RequestItem request={request} key={request._id} />
         ))}
       </Row>

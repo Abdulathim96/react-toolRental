@@ -50,7 +50,7 @@ function SignUp() {
                   borderColor: "rgb(255, 209, 56) !important",
                 }}
               >
-                Login
+                Signup
               </Button>
             </Form>
           </Col>
