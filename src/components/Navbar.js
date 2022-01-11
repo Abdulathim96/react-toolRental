@@ -4,6 +4,7 @@ import { useContext } from "react"
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import ToolRentelContext from "../utils/ToolRentelContext"
+import MyDropdown from "./MyDropdown"
 
 function NavbarItem() {
   const { logout, categorys } = useContext(ToolRentelContext)
@@ -29,13 +30,14 @@ function NavbarItem() {
             <Link className="nav-link" to="/requests">
               Requests
             </Link>
-            <NavDropdown title="Categories" id="basic-nav-dropdown">
+            {/* <NavDropdown title="Categories" id="basic-nav-dropdown">
               {categorys.map(category => (
                 <Link to={`/offers?cat=${category.name}`} className="dropdown-item">
                   {category.name}
                 </Link>
               ))}
-            </NavDropdown>
+            </NavDropdown> */}
+            <MyDropdown />
           </Nav>
           {localStorage.tokenOffers ? (
             <Nav className="ms-auto">

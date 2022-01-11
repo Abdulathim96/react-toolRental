@@ -18,6 +18,7 @@ function App() {
   const [offers, setOffers] = useState([])
   const [requests, setRequests] = useState([])
   const [categorys, setCategorys] = useState([])
+  const [subCategories, setsubCategories] = useState([])
   const [profile, setProfile] = useState(null)
   const navigate = useNavigate()
   /* GET */
@@ -65,6 +66,13 @@ function App() {
           categorys.push(category.value)
         }
       })
+      const subCategories = []
+      form.elements.subCategories.forEach(subCategory => {
+        if (subCategory.checked) {
+          subCategories.push(subCategory.value)
+        }
+      })
+
 
       const offerBody = {
         title: form.elements.title.value,
@@ -73,6 +81,7 @@ function App() {
         price: form.elements.price.value,
         phoneNumber: form.elements.phoneNumber.value,
         categorys: categorys,
+        subCategories: subCategories,
       }
       await axios.post(`http://localhost:5000/api/offers`, offerBody, {
         headers: {
@@ -105,6 +114,7 @@ function App() {
         price: form.elements.price.value,
         phoneNumber: form.elements.phoneNumber.value,
         categorys: categorys,
+        subCategories: subCategories,
       }
       await axios.put(`http://localhost:5000/api/offers/${offerId}`, offerBody, {
         headers: {

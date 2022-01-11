@@ -10,7 +10,7 @@ import { useSearchParams } from "react-router-dom"
 import Sidebar from "../components/Sidebar"
 
 function AllOffers() {
-  const { offers, categorys } = useContext(ToolRentelContext)
+  const { offers, categorys , subCategorys } = useContext(ToolRentelContext)
   const [searchParams, setSearchParams] = useSearchParams()
   const queryCat = searchParams.get("cat")
   const [category, setCategory] = useState(queryCat || null)
@@ -18,6 +18,7 @@ function AllOffers() {
 
   let offerCategory = offers
   if (category) offerCategory = offers.filter(offer => offer.categorys.find(c => category == c.name))
+  if (category && offerCategory.length === 0) offerCategory = offers.filter(offer => offer.subCategories.find(c => category == c.name))
 
   useEffect(() => {
     const queryCat = searchParams.get("cat")
@@ -26,7 +27,7 @@ function AllOffers() {
 
   return (
     <>
-      {/* <Sidebar /> */}
+      <Sidebar />
       {/* <Form.Select aria-label="Default select example">
         <option onClick={() => setCategory(null)}>All</option>
 
@@ -34,13 +35,13 @@ function AllOffers() {
           <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
         ))}
       </Form.Select> */}
-      <ul>
+      {/* <ul>
         <option onClick={() => setCategory(null)}>All</option>
 
         {categorys.map(cat => (
           <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
         ))}
-      </ul>
+      </ul> */}
 
       <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
         <h4 className="mt-5 mb-4">All offers</h4>

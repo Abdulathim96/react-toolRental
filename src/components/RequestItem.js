@@ -31,7 +31,7 @@ function MovieItem(props) {
               </div>
               <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                 <div class="d-flex flex-row align-items-center">
-                  {/* <h4 class="mr-1">{request.price}$ for one Day</h4> */}
+                  <p class="mr-1">.</p>
                 </div>
                 <div class="d-flex flex-column mt-4">
                   <button class="btn btn-outline-primary btn-sm mt-2" type="button">

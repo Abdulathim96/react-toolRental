@@ -12,9 +12,9 @@ function OfferItem(props) {
   const [editShow, setEditShow] = useState(false)
 
   return (
-    <body style={{ background: "#eee" }}>
-      <div class="container mt-5 mb-5">
-        <div class="d-flex justify-content-center row">
+    <body style={{ background: "#eee"}}>
+      <div class=" mt-3 mb-5 "  style={{marginLeft:130,marginRight:70}}>
+        <div class="d-flex justify-content-end row me-2">
           <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
               <div class="col-md-3 mt-1">
@@ -37,7 +37,7 @@ function OfferItem(props) {
               </div>
               <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                 <div class="d-flex flex-row align-items-center">
-                  <h4 class="mr-1">{offer.price}$ for one Day</h4>
+                  <p class="mr-1">{offer.price}$ for one Day</p>
                 </div>
                 {inProfile ? (
                   <div class="d-flex flex-column mt-4">
@@ -53,19 +53,25 @@ function OfferItem(props) {
                   </div>
                 ) : (
                   <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                    <Link to={`/offer/${offer._id}`}>
+                    <button className="btn btn-outline-primary btn-sm mt-2 btn btn-link" type="button" style={{
+                      marginTop: "20px",
+
+                      
+                    }}>
                       view
                     </button>
+                    </Link>
                     <button
                       class="btn btn-outline-primary btn-sm mt-2"
                       type="button"
-                      style={
-                        {
-                          // backgroundColor: "rgb(255, 201, 0)",
-                          // Color: "black",
-                          // borderColor: "rgb(255, 201, 0)",
-                        }
-                      }
+                      // style={
+                      //   {
+                      //     backgroundColor: "rgb(255, 201, 0)",
+                      //     Color: "black",
+                      //     borderColor: "rgb(255, 201, 0)",
+                      //   }
+                      // }
                     >
                       message
                     </button>

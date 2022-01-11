@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
-function OfferEditModal(props) {
+function OffersEditModal(props) {
   const { show, setShow, offer } = props
   const { categorys, editOffer } = useContext(ToolRentelContext)
   return (
@@ -88,4 +88,4 @@ function OfferEditModal(props) {
   )
 }
 
-export default OfferEditModal
+export default OffersEditModal
