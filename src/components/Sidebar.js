@@ -66,7 +66,7 @@ export default function PermanentDrawerLeft() {
             width: drawerWidth,
             boxSizing: "border-box",
           zIndex: "0",
-          marginTop:"60px"
+          
 
           },
         }}
@@ -79,6 +79,8 @@ export default function PermanentDrawerLeft() {
               <StoreIcon />
             </ListItemIcon>
             <ListItemText primary="categories" />
+            <ListItemText></ListItemText>
+            <ListItemText></ListItemText>
           </ListItem>
         </List>
         <List>

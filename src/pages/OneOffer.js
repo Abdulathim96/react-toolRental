@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import ToolRentelContext from "../utils/ToolRentelContext"
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
 import AddComment from "../components/AddComment"
+import "./OneOffer.css"
 
 function OneOffer() {
   const { offerId } = useParams()
@@ -15,36 +16,18 @@ function OneOffer() {
   const offer = offers.find(offer => offer._id === offerId)
 
   return (
-    
     <>
       <body>
-        {/* <body style={{
-          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.photo} ")`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          display: "flex",
-          alignItems: "center",
-        }}> */}
-        <div class="container height-100 d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-          <div class="card" style={{ width: "100%", border: "none", borderRadius: "50px" }}>
-            {" "}
-            <img
-              width="380"
-              height="220"
-              src={offer.photo}
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-            <div class="p-3 content">
-              {" "}
-              <span style={{ color: "blue", fontWeight: "500" }}>{offer.title}</span>
-              <h4>{offer.price} $ For a day</h4>
-              <p style={{ fontSize: "13px" }}>{offer.description}</p>
-            </div>
+        <div class="body">
+        <div class="wrap"/>
+        <div class="blog" >
+          <div class="conteudo" >
+            <div class="post-info">{offer.title}</div>
+            <img src={offer.photo}/>
+            <h1> {offer.title} </h1>
+            <hr/>
+            <p>{offer.description}</p>
           </div>
-        </div>
         {localStorage.tokenOffers ? (
           <>
             <Row className="mt-5">
@@ -55,7 +38,7 @@ function OneOffer() {
                   <Row>
                     <Row style={{ display: "flex", alignItems: "center" }}>
                       <Col md="1">
-                        <Image style={{clipPath: "circle()",}} src={comment.owner.avatar} width="80px" roundedCircle />
+                        <Image style={{ clipPath: "circle()" }} src={comment.owner.avatar} width="80px" roundedCircle />
                       </Col>
                       <Col>
                         {comment.owner.firstName} {comment.owner.lastName}
@@ -73,6 +56,8 @@ function OneOffer() {
             </Row>
           </>
         ) : null}
+        </div>
+        </div>
       </body>
     </>
   )

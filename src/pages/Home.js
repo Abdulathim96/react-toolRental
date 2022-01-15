@@ -4,7 +4,7 @@ function Home() {
   return (
     <>
       <Container>
-        Home
+        <h1 style={{textAlign:"center"}}><strong>HOME</strong></h1>
       </Container>
     </>
   )

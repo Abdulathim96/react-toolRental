@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useContext } from "react"
 import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
@@ -5,6 +6,8 @@ import ToolRentelContext from "../utils/ToolRentelContext"
 function OfferAddModal(props) {
   const { show, setShow } = props
   const { categorys, addOffer } = useContext(ToolRentelContext)
+  const [currentCategoryId, setCurrentCategoryId] = useState(null)
+  const currentCategory = categorys.find(category => category._id == currentCategoryId)
   return (
     <Modal show={show} onHide={() => setShow(false)}>
       <Form onSubmit={addOffer}>
@@ -57,16 +60,23 @@ function OfferAddModal(props) {
               Category
             </Form.Label>
             <Col md="8">
-              {categorys.map(categoryObject => (
-                <Row>
-                  <Col md="2">
-                    <Form.Check type="checkbox" name="categorys" value={categoryObject._id} />
-                  </Col>
-                  <Col md="2">
-                    <span>{categoryObject.name}</span>
-                  </Col>
-                </Row>
-              ))}
+              <Form.Select name="categorys" onChange={(e) => setCurrentCategoryId(e.target.value)}>
+                {categorys.map(categoryObject => (
+                  <option value={categoryObject._id}>{categoryObject.name}</option>
+                ))}
+              </Form.Select>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column md="3">
+              SubCategory
+            </Form.Label>
+            <Col md="8">
+              <Form.Select name="subCategories">
+                {currentCategory?.subCategories.map(subcategoryObject => (
+                  <option value={subcategoryObject._id}>{subcategoryObject.name}</option>
+                ))}
+              </Form.Select>
             </Col>
           </Form.Group>
         </Modal.Body>

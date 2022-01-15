@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { Button, Card, Col, Image, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
+import AddRequestComment from "../components/AddRequestComment"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
 function OneRequest() {
@@ -46,24 +47,27 @@ function OneRequest() {
           <Row className="mt-5">
             <h3>Comments</h3>
 
-            {request.comments.map(comment => (
+            {request.requestcomments.map(requestcomment => (
               <Card style={{ margin: 20, maxWidth: 1100 }}>
                 <Row>
                   <Row style={{ display: "flex", alignItems: "center" }}>
                     <Col md="1">
-                      <Image src={comment.owner.avatar} width="80px" roundedCircle />
+                      <Image src={requestcomment.owner.avatar} width="80px" roundedCircle />
                     </Col>
                     <Col>
-                      {comment.owner.firstName} {comment.owner.lastName}
+                      {requestcomment.owner.firstName} {requestcomment.owner.lastName}
                     </Col>
                   </Row>
                   <Row>
-                    <Col md={{ offset: 1 }}>{comment.comment}</Col>
+                    <Col md={{ offset: 1 }}>{requestcomment.requestcomment}</Col>
                   </Row>
                 </Row>
               </Card>
             ))}
           </Row>
+          <Row>
+              <AddRequestComment requestId={request._id} />
+            </Row>
         
         </>
       ) : null}

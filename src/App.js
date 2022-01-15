@@ -60,18 +60,6 @@ function App() {
     try {
       const form = e.target
 
-      const categorys = []
-      form.elements.categorys.forEach(category => {
-        if (category.checked) {
-          categorys.push(category.value)
-        }
-      })
-      const subCategories = []
-      form.elements.subCategories.forEach(subCategory => {
-        if (subCategory.checked) {
-          subCategories.push(subCategory.value)
-        }
-      })
 
 
       const offerBody = {
@@ -80,8 +68,8 @@ function App() {
         photo: form.elements.photo.value,
         price: form.elements.price.value,
         phoneNumber: form.elements.phoneNumber.value,
-        categorys: categorys,
-        subCategories: subCategories,
+        categorys: [form.elements.categorys.value],
+        subCategories: [form.elements.subCategories.value]
       }
       await axios.post(`http://localhost:5000/api/offers`, offerBody, {
         headers: {
@@ -246,6 +234,31 @@ function App() {
       else console.log(error)
     }
   }
+
+  /**Request Comment */
+
+
+  const addRequestComments = async (e, requestId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const requestCommentBody = {
+        requestComment: form.elements.requestComment.value,
+      }
+
+      form.reset()
+      await axios.post(`http://localhost:5000/api/offers/${requestId}/requestComments`, requestCommentBody, {
+        headers: {
+          Authorization: localStorage.tokenOffers,
+        },
+      })
+      getOffers()
+      toast.success("RequestComment added")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
   
   const signup = async e => {
     e.preventDefault()
@@ -308,6 +321,7 @@ function App() {
     deleteRequests,
     categorys,
     addComments,
+    addRequestComments,
     signup,
     login,
     logout,
