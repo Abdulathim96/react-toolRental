@@ -15,13 +15,6 @@ function AllRequests() {
 
   return (
     <>
-    <ul>
-        <li onClick={() => setCategory(null)}>All</li>
-
-        {categorys.map(cat => (
-          <li onClick={() => setCategory(cat.name)}>{cat.name}</li>
-        ))}
-      </ul>
       <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
         <h4 className="mt-5 mb-4">All requests</h4>
         <Button style={{ marginRight: 40, marginTop: 50 }} onClick={() => setShow(true)} variant="outline-primary">

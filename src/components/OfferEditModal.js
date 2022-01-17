@@ -1,10 +1,15 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
 function OffersEditModal(props) {
   const { show, setShow, offer } = props
   const { categorys, editOffer } = useContext(ToolRentelContext)
+  const [currentCategoryId, setCurrentCategoryId] = useState(null)
+  const currentCategory = categorys.find(category => category._id == currentCategoryId)
+  useEffect(()=> {
+  if (categorys.length > 0)  setCurrentCategoryId(categorys[0]._id)
+  },[categorys])
   return (
     <Modal show={show} onHide={() => setShow(false)}>
       <Form className="mt-5" onSubmit={e => editOffer(e, offer._id)}>
@@ -54,24 +59,35 @@ function OffersEditModal(props) {
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
-              category
+              available
             </Form.Label>
             <Col md="8">
-              {categorys.map(categoryObject => (
-                <Row>
-                  <Col md="2">
-                    <Form.Check
-                      type="checkbox"
-                      name="categorys"
-                      defaultChecked={offer.categorys.find(categoryOffer => categoryOffer._id === categoryObject._id)}
-                      value={categoryObject._id}
-                    />
-                  </Col>
-                  <Col md="2">
-                    <span>{categoryObject.name}</span>
-                  </Col>
-                </Row>
-              ))}
+              {/* <Form.Control type="text" name="phoneNumber" defaultValue={offer.phoneNumber} required /> */}
+              <Form.Check type="switch" id="custom-switch" name="available" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column md="3">
+              Category
+            </Form.Label>
+            <Col md="8">
+              <Form.Select name="categorys" onChange={(e) => setCurrentCategoryId(e.target.value)}>
+                {categorys.map(categoryObject => (
+                  <option value={categoryObject._id}>{categoryObject.name}</option>
+                ))}
+              </Form.Select>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column md="3">
+              SubCategory
+            </Form.Label>
+            <Col md="8">
+              <Form.Select name="subCategories">
+                {currentCategory?.subCategories.map(subcategoryObject => (
+                  <option value={subcategoryObject._id}>{subcategoryObject.name}</option>
+                ))}
+              </Form.Select>
             </Col>
           </Form.Group>
         </Modal.Body>

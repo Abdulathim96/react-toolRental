@@ -27,22 +27,6 @@ function AllOffers() {
 
   return (
     <>
-      <Sidebar />
-      {/* <Form.Select aria-label="Default select example">
-        <option onClick={() => setCategory(null)}>All</option>
-
-        {categorys.map(cat => (
-          <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
-        ))}
-      </Form.Select> */}
-      {/* <ul>
-        <option onClick={() => setCategory(null)}>All</option>
-
-        {categorys.map(cat => (
-          <option onClick={() => setCategory(cat.name)}>{cat.name}</option>
-        ))}
-      </ul> */}
-
       <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
         <h4 className="mt-5 mb-4">All offers</h4>
         <Button style={{ marginRight: 40, marginTop: 50 }} onClick={() => setShow(true)} variant="outline-primary">

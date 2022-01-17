@@ -1,9 +1,16 @@
-import { useState } from "react"
-import { Card, Col } from "react-bootstrap"
+import { useState , useContext} from "react"
+import { Card, Col , Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import ToolRentelContext from "../utils/ToolRentelContext"
+import RequestDeleteModal from "./RequestDeleteModal"
+import RequestEditModal from "./RequestEditModal"
+
 
 function MovieItem(props) {
   const { request , inProfile } = props
+  const { deleteRequest } = useContext(ToolRentelContext)
+  const [deleteShow, setDeleteShow] = useState(false)
+  const [editShow, setEditShow] = useState(false)
   
 
 
@@ -33,14 +40,44 @@ function MovieItem(props) {
                 <div class="d-flex flex-row align-items-center">
                   <p class="mr-1">.</p>
                 </div>
-                <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                    view
-                  </button>
-                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                    message
-                  </button>
-                </div>
+                {inProfile ? (
+                  <div class="d-flex flex-column mt-4">
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button" onClick={() => setEditShow(true)}>
+                      Edit
+                    </button>
+
+                    <button class="btn btn-outline-primary btn-sm mt-2" onClick={() => deleteRequest(request._id)}>
+                      Delete
+                    </button>
+                    <RequestEditModal show={editShow} setShow={setEditShow} request={request} />
+                    <RequestDeleteModal show={deleteShow} setShow={setDeleteShow} requestId={request._id} />
+                  </div>
+                ) : (
+                  <div>
+                    <Link to={`/request/${request._id}`} style={{ textDecoration: "none" }}>
+                      <Button
+                        variant="outline-primary"
+                        style={{
+                          marginTop: "20px",
+                          padding: "3px 60px",
+                        }}
+                      >
+                        view
+                      </Button>
+                    </Link>
+                    <Link to={`/request/${request._id}`} style={{ textDecoration: "none" }}>
+                      <Button
+                        variant="outline-primary"
+                        style={{
+                          marginTop: "20px",
+                          padding: "3px 43px",
+                        }}
+                      >
+                        message
+                      </Button>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>

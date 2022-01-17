@@ -7,7 +7,7 @@ import ToolRentelContext from "../utils/ToolRentelContext"
 import "./profile.css"
 
 function Profile() {
-  const { profile, offers, requests , image, user, settings, bio, item, userName } = useContext(ToolRentelContext)
+  const { profile, offers, requests} = useContext(ToolRentelContext)
   if (!profile) return <h1>Loading...</h1>
 
   const myoffers = offers.filter(offer => offer.owner._id == profile._id)
@@ -34,27 +34,7 @@ function Profile() {
               <h1 class="profile-user-name">
                 {profile.firstName} {profile.lastName}
               </h1>
-
-              {/* <button class="btn profile-edit-btn">Edit Profile</button> */}
-
-              {/* <button class="btn profile-settings-btn" aria-label="profile settings">
-                <i class="fas fa-cog" aria-hidden="true"></i>
-              </button> */}
             </div>
-            {/* <div class="profile-stats">
-              <ul>
-              <li>
-              <span class="profile-stat-count">164</span> posts
-              </li>
-              <li>
-              <span class="profile-stat-count">188</span> followers
-              </li>
-              <li>
-              <span class="profile-stat-count">206</span> following
-              </li>
-              </ul>
-            </div> */}
-
             <div class="profile-bio">
               <p class="profile-real-name">{profile.email}</p>
             </div>
@@ -73,13 +53,8 @@ function Profile() {
             </div>
 
             <div class="gallery-item" tabindex="0">
-              {/* <img
-                src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop"
-                class="gallery-image"
-                alt=""
-              /> */}
-              {requests.map(request => (
-                <RequestItem request={request} key={request._id} />
+              {myrequests.map(request => (
+                <RequestItem request={request} inProfile={true} />
               ))}
             </div>
           </div>

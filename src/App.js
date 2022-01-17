@@ -60,8 +60,6 @@ function App() {
     try {
       const form = e.target
 
-
-
       const offerBody = {
         title: form.elements.title.value,
         description: form.elements.description.value,
@@ -69,7 +67,7 @@ function App() {
         price: form.elements.price.value,
         phoneNumber: form.elements.phoneNumber.value,
         categorys: [form.elements.categorys.value],
-        subCategories: [form.elements.subCategories.value]
+        subCategories: [form.elements.subCategories.value],
       }
       await axios.post(`http://localhost:5000/api/offers`, offerBody, {
         headers: {
@@ -88,21 +86,15 @@ function App() {
     try {
       const form = e.target
 
-      const categorys = []
-      form.elements.categorys.forEach(category => {
-        if (category.checked) {
-          categorys.push(category.value)
-        }
-      })
-
       const offerBody = {
         title: form.elements.title.value,
         description: form.elements.description.value,
         photo: form.elements.photo.value,
         price: form.elements.price.value,
         phoneNumber: form.elements.phoneNumber.value,
-        categorys: categorys,
-        subCategories: subCategories,
+        available: form.elements.available.checked,
+        categorys: [form.elements.categorys.value],
+        subCategories: [form.elements.subCategories.value],
       }
       await axios.put(`http://localhost:5000/api/offers/${offerId}`, offerBody, {
         headers: {
@@ -164,7 +156,7 @@ function App() {
       else console.log(error)
     }
   }
-  const editRequests = async (e, requestId) => {
+  const editRequest = async (e, requestId) => {
     e.preventDefault()
     try {
       const form = e.target
@@ -195,7 +187,7 @@ function App() {
       else console.log(error)
     }
   }
-  const deleteRequests = async requestId => {
+  const deleteRequest = async requestId => {
     try {
       await axios.delete(`http://localhost:5000/api/requests/${requestId}`, {
         headers: {
@@ -237,17 +229,16 @@ function App() {
 
   /**Request Comment */
 
-
   const addRequestComments = async (e, requestId) => {
     e.preventDefault()
     try {
       const form = e.target
       const requestCommentBody = {
-        requestComment: form.elements.requestComment.value,
+        requestcomment: form.elements.requestcomment.value,
       }
 
       form.reset()
-      await axios.post(`http://localhost:5000/api/offers/${requestId}/requestComments`, requestCommentBody, {
+      await axios.post(`http://localhost:5000/api/requests/${requestId}/requestComments`, requestCommentBody, {
         headers: {
           Authorization: localStorage.tokenOffers,
         },
@@ -259,7 +250,7 @@ function App() {
       else console.log(error)
     }
   }
-  
+
   const signup = async e => {
     e.preventDefault()
     try {
@@ -317,8 +308,8 @@ function App() {
     deleteOffer,
     requests,
     addRequest,
-    editRequests,
-    deleteRequests,
+    editRequest,
+    deleteRequest,
     categorys,
     addComments,
     addRequestComments,

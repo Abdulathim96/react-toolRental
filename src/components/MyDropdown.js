@@ -73,7 +73,7 @@ function MyDropdown(props) {
 
   return (
     <Dropdown ref={ref}>
-      <Dropdown.Toggle variant="dark" id="dropdown-basic" style={{backgroundColor: "black"}}>
+      <Dropdown.Toggle variant="dark" id="dropdown-basic" style={{backgroundColor: "rgb(34, 40, 49)"}}>
         Categories
       </Dropdown.Toggle>
       <Dropdown.Menu>{recursiveMenu(data)}</Dropdown.Menu>

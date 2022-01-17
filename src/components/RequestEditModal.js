@@ -1,21 +1,20 @@
-import { useState, useEffect } from "react"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Button, Col, Form, Image, ListGroup, Modal, Row } from "react-bootstrap"
 import ToolRentelContext from "../utils/ToolRentelContext"
 
-function OfferAddModal(props) {
-  const { show, setShow } = props
-  const { categorys, addOffer } = useContext(ToolRentelContext)
+function RequestsEditModal(props) {
+  const { show, setShow, request } = props
+  const { categorys, editRequest } = useContext(ToolRentelContext)
   const [currentCategoryId, setCurrentCategoryId] = useState(null)
   const currentCategory = categorys.find(category => category._id == currentCategoryId)
   useEffect(()=> {
-    if (categorys.length > 0)  setCurrentCategoryId(categorys[0]._id)
-    },[categorys])
+  if (categorys.length > 0)  setCurrentCategoryId(categorys[0]._id)
+  },[categorys])
   return (
     <Modal show={show} onHide={() => setShow(false)}>
-      <Form onSubmit={addOffer}>
+      <Form className="mt-5" onSubmit={e => editRequest(e, request._id)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add offer</Modal.Title>
+          <Modal.Title>Edit Request</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group as={Row} className="mb-3">
@@ -23,7 +22,7 @@ function OfferAddModal(props) {
               Title
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="title" required />
+              <Form.Control type="text" name="title" defaultValue={request.title} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -31,7 +30,7 @@ function OfferAddModal(props) {
               Description
             </Form.Label>
             <Col md="8">
-              <Form.Control as="textarea" name="description" required />
+              <Form.Control as="textarea" name="description" defaultValue={request.description} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -39,7 +38,7 @@ function OfferAddModal(props) {
               Photo
             </Form.Label>
             <Col md="8">
-              <Form.Control type="url" name="photo" required />
+              <Form.Control type="url" name="photo" defaultValue={request.photo} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -47,15 +46,15 @@ function OfferAddModal(props) {
               Price
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="price" />
+              <Form.Control type="number" name="price" defaultValue={request.price} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
-              phoneNumber
+              Phone Number
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="phoneNumber" required />
+              <Form.Control type="text" name="phoneNumber" defaultValue={request.phoneNumber} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
@@ -87,8 +86,8 @@ function OfferAddModal(props) {
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={() => setShow(false)}>
-            Add offer
+          <Button variant="success" type="submit" onClick={() => setShow(false)}>
+            Confirm Edit
           </Button>
         </Modal.Footer>
       </Form>
@@ -96,4 +95,4 @@ function OfferAddModal(props) {
   )
 }
 
-export default OfferAddModal
+export default RequestsEditModal
