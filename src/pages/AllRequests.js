@@ -15,11 +15,13 @@ function AllRequests() {
 
   return (
     <>
-      <div className="container" style={{ display: "flex", justifyContent: "space-between" }}>
-        <h4 className="mt-5 mb-4">All requests</h4>
-        <Button style={{ marginRight: 40, marginTop: 50 }} onClick={() => setShow(true)} variant="outline-primary">
+    <div style={{  background: "rgb(248, 248, 248)" }}>
+      <div className="container" style={{ display: "flex", justifyContent: "space-between", background: "rgb(248, 248, 248)" , marginRight: 170  }}>
+        <h4 className="mt-5 mb-4" style={{marginLeft: 180}}>Requests</h4>
+        <Button style={{ marginRight: 50, marginTop: 50 ,marginBottom: 10 }} onClick={() => setShow(true)} variant="outline-primary">
           Add Request<AddIcon />
         </Button>
+      </div>
       </div>
       <Row md={1}>
         {requestCategory.map(request => (

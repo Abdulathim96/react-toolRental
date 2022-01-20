@@ -13,6 +13,7 @@ import AllOffers from "./pages/AllOffers"
 import AllRequests from "./pages/AllRequests"
 import OneOffer from "./pages/OneOffer"
 import OneRequests from "./pages/OneRequests"
+import  Message  from "./pages/Message"
 
 function App() {
   const [offers, setOffers] = useState([])
@@ -36,6 +37,8 @@ function App() {
     const response = await axios.get("http://localhost:5000/api/categorys")
     setCategorys(response.data)
   }
+
+
 
   const getProfile = async () => {
     const response = await axios.get("http://localhost:5000/api/auth/profile", {
@@ -195,7 +198,7 @@ function App() {
         },
       })
       toast.success("request deleted")
-      getOffers()
+      getRequests()
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
@@ -203,7 +206,7 @@ function App() {
   }
   /**REQuESTS */
 
-  /**Comment */
+  /** Offer Comment */
 
   const addComments = async (e, offerId) => {
     e.preventDefault()
@@ -226,6 +229,7 @@ function App() {
       else console.log(error)
     }
   }
+  /**Offer Comment */
 
   /**Request Comment */
 
@@ -243,13 +247,15 @@ function App() {
           Authorization: localStorage.tokenOffers,
         },
       })
-      getOffers()
+      getRequests()
       toast.success("RequestComment added")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
     }
   }
+
+  /**Request Comment */
 
   const signup = async e => {
     e.preventDefault()
@@ -333,6 +339,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/message/:receiveId" element={<Message />} />
+        <Route path="/message" element={<Message />} />
       </Routes>
     </ToolRentelContext.Provider>
   )

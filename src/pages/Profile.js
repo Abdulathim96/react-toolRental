@@ -11,13 +11,21 @@ function Profile() {
   if (!profile) return <h1>Loading...</h1>
 
   const myoffers = offers.filter(offer => offer.owner._id == profile._id)
-  const myrequests = requests.filter(request => request.owner._id == profile._id)
+  const myrequests = requests.filter(request => request.owner == profile._id)
 
   return (
 
-    <div className="body">
-      <header>
-        <div class="container">
+    <div className="bodyp">
+      <header style={{
+        backgroundColor: "rgb(44, 52, 64)",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        display:"block",
+        // alignItems: "center",
+        color: "white",
+        }}>
+        <div class="container1">
           <div class="profile">
             <div class="profile-image">
               <img
@@ -25,7 +33,7 @@ function Profile() {
                 alt=""
                 style={{
                   clipPath: "circle()",
-                  width: "150px",
+                  width: "250px",
                 }}
               />
             </div>
@@ -40,18 +48,17 @@ function Profile() {
             </div>
           </div>
         </div>
-            <hr />
+           
       </header>
-      <main>
+      <main style={{background: "rgb(248, 248, 248)"}}>
         <div></div>
-        <div class="container">
+        <div class="container2" >
           <div class="gallery">
             <div class="gallery-item" tabindex="0">
               {myoffers.map(offer => (
                 <OfferItem offer={offer} inProfile={true} />
               ))}
             </div>
-
             <div class="gallery-item" tabindex="0">
               {myrequests.map(request => (
                 <RequestItem request={request} inProfile={true} />

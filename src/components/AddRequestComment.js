@@ -7,21 +7,15 @@ function AddRequestComment(props) {
   const { addRequestComments } = useContext(ToolRentelContext)
   const { requestId } = props
   return (
+    
     <div className="ms-4">
-      <h1>Add RequestComment</h1>
-      <Form className="mt-5" onSubmit={e => addRequestComments(e, requestId)}>
+      <Form className="mt-5" onSubmit={e => addRequestComments(e, requestId)}  style={{display:"inline"}}>
         <Form.Group as={Row} className="mb-3">
-          <Form.Label column md="2">
-            RequestComment
-          </Form.Label>
           <Col md="6">
-            <Form.Control as="textarea" name="requestcomment" required />
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row} className="my-4">
-          <Col md={{ span: 10, offset: 2 }}>
-            <Button type="submit">Add</Button>
+            <Form.Label>
+            <h4>Add Comment</h4>
+          </Form.Label>
+          <Form.Control as="textarea" name="requestcomment" required /><Button type="submit" style={{position:"relative", left:"760px", bottom:"50px"}}>Add</Button>
           </Col>
         </Form.Group>
       </Form>

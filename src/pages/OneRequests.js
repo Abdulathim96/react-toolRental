@@ -18,7 +18,8 @@ function OneRequest() {
     <>
       <Row
         style={{
-          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${request.poster}")`,
+          // backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${request.photo}")`,
+          backgroundColor: "rgb(44, 52, 64)",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -45,8 +46,7 @@ function OneRequest() {
       {localStorage.tokenOffers ? (
         <>
           <Row className="mt-5">
-            <h3>Comments</h3>
-
+            
             {request.requestcomments.map(requestcomment => (
               <Card style={{ margin: 20, maxWidth: 1100 }}>
                 <Row>

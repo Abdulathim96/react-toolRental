@@ -1,3 +1,4 @@
+import "./Home.css"
 import { Container, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import navbarBrand from "../assets/img/navbar-logo.svg"
@@ -7,43 +8,21 @@ import portfolio3 from "../assets/img/portfolio/3.jpg"
 import portfolio4 from "../assets/img/portfolio/4.jpg"
 import portfolio5 from "../assets/img/portfolio/5.jpg"
 import portfolio6 from "../assets/img/portfolio/6.jpg"
-import about1 from "../assets/img/about/1.jpg"
+import about1 from "../assets/img/about/1.png"
 import about2 from "../assets/img/about/2.jpg"
-import about3 from "../assets/img/about/3.jpg"
-import about4 from "../assets/img/about/4.jpg"
+import about3 from "../assets/img/about/3.png"
+import about4 from "../assets/img/about/4.png"
 import microsoft from "../assets/img/logos/microsoft.svg"
 import google from "../assets/img/logos/google.svg"
 import facebook from "../assets/img/logos/facebook.svg"
 import ibm from "../assets/img/logos/ibm.svg"
-
-import "./Home.css"
 function Home(props) {
   const { offer } = props
 
   return (
     <>
-      {/* <Container>
-        <h1 style={{textAlign:"center"}}><strong>HOME</strong></h1>
-      </Container> */}
-      <body id="page-top">
-        {/* <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src={navbarBrand} alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav> */}
+
+          <body id="page-top">
         <header class="masthead">
           <div class="container">
             <div class="masthead-subheading">Welcome To Our Studio!</div>
@@ -127,6 +106,22 @@ function Home(props) {
                     <img class="img-fluid" src={portfolio2} alt="..." />
                   </a>
                   <div class="portfolio-caption">
+                    <div class="portfolio-caption-heading">Threads</div>
+                    <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                  <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                    <div class="portfolio-hover">
+                      <div class="portfolio-hover-content">
+                        <i class="fas fa-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <img class="img-fluid" src={portfolio2} alt="..." />
+                  </a>
+                  <div class="portfolio-caption">
                     <div class="portfolio-caption-heading">Explore</div>
                     <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
                   </div>
@@ -147,55 +142,43 @@ function Home(props) {
             <ul class="timeline">
               <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src={about1} alt="..." />
+                  <img class="rounded-circle img-fluid" src={about1} alt="..." style={{clipPath: "circle()", width: 250 }} />
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>2009-2011</h4>
-                    <h4 class="subheading">Our Humble Beginnings</h4>
+                    <h4>16/12/2021</h4>
+                    <h4 class="subheading">the beginning</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
-                      reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
-                      laudantium consectetur!
-                    </p>
+                    <p class="text-muted">We developed a project plan!</p>
                   </div>
                 </div>
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src={about2} alt="..." />
+                  <center><img class="rounded-circle img-fluid" src={about2} alt="..." style={{width: 110 ,marginTop: 20}} /></center>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>March 2011</h4>
-                    <h4 class="subheading">An Agency is Born</h4>
+                    <h4>19/12/2021</h4>
+                    <h4 class="subheading">We started programming the back-end</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
-                      reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
-                      laudantium consectetur!
-                    </p>
+                    <p class="text-muted">We worked on the data base for the project!</p>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src={about3} alt="..." />
+                <center><img class="rounded-circle img-fluid" src={about3} alt="..." style={{clipPath: "circle()", width: 250 ,marginTop: 20}} /></center>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>December 2015</h4>
-                    <h4 class="subheading">Transition to Full Service</h4>
+                    <h4>6/1/2022</h4>
+                    <h4 class="subheading">We made a dashboard for the site</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
-                      reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
-                      laudantium consectetur!
-                    </p>
+                    <p class="text-muted">We made a dashboard for the Admin!</p>
                   </div>
                 </div>
               </li>
@@ -205,64 +188,35 @@ function Home(props) {
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>July 2020</h4>
-                    <h4 class="subheading">Phase Two Expansion</h4>
+                    <h4>11/1/2022</h4>
+                    <h4 class="subheading">We started developing our website</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam
-                      reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
-                      laudantium consectetur!
-                    </p>
+                    <p class="text-muted">Finally, we developed our website!</p>
                   </div>
                 </div>
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <h4>
-                    Be Part
+                    We hope
                     <br />
-                    Of Our
+                    you
                     <br />
-                    Story!
+                    like it!
                   </h4>
                 </div>
               </li>
             </ul>
           </div>
         </section>
-        <div class="py-5">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!">
-                  <img class="img-fluid img-brand d-block mx-auto" src={microsoft} alt="..." />
-                </a>
-              </div>
-              <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!">
-                  <img class="img-fluid img-brand d-block mx-auto" src={google} alt="..." />
-                </a>
-              </div>
-              <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!">
-                  <img class="img-fluid img-brand d-block mx-auto" src={facebook} alt="..." />
-                </a>
-              </div>
-              <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!">
-                  <img class="img-fluid img-brand d-block mx-auto" src={ibm} alt="..." />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        
         {/* <section class="page-section" id="contact">
           <div class="container">
             
           </div>
         </section> */}
-        <footer class="footer py-4">
+        <footer class="footer py-4" style={{ backgroundColor: "rgb(44, 52, 64)", color: "#eee"}}>
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
@@ -297,7 +251,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-        <footer class="page-footer">
+        <footer class="page-footer" style={{ backgroundColor: "rgb(44, 52, 64)" , color: "white"}}>
           <div class="container">
             <div class="row">
               <div class="col l6 s12">

@@ -19,7 +19,7 @@ function NavbarItem() {
         <Link to="/" className="navbar-brand d-flex align-items-center">
           <span>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfTEzL4JDi2D-839RRHdluTGQp3jMGYffWmA&usqp=CAU"
+              src="https://cdn.dribbble.com/users/39316/screenshots/6122607/tr_logo_mark.png"
               width={50}
             />
           </span>
@@ -34,6 +34,11 @@ function NavbarItem() {
             <Link className="nav-link" to="/requests">
               Requests
             </Link>
+            {localStorage.tokenOffers ? (
+            <Link className="nav-link" to="/message">
+              Messages
+            </Link>
+            ):null}
             {/* <NavDropdown title="Categories" id="basic-nav-dropdown">
               {categorys.map(category => (
                 <Link to={`/offers?cat=${category.name}`} className="dropdown-item">

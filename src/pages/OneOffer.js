@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import ToolRentelContext from "../utils/ToolRentelContext"
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
 import AddComment from "../components/AddComment"
-import "./OneOffer.css"
+// import "./OneOffer.css"
 
 function OneOffer() {
   const { offerId } = useParams()
@@ -17,22 +17,38 @@ function OneOffer() {
 
   return (
     <>
-      <body>
-        <div class="body">
-        <div class="wrap"/>
-        <div class="blog" >
-          <div class="conteudo" >
-            <div class="post-info">{offer.title}</div>
-            <img src={offer.photo}/>
-            <h1> {offer.title} </h1>
-            <hr/>
-            <p>{offer.description}</p>
+          <Row
+        style={{
+          // backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${offer.photo}")`,
+          backgroundColor: "rgb(44, 52, 64)",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          display: "flex",
+          alignItems: "center",
+          color: "white",
+        }}
+      >
+        <Col md="4">
+          <img variant="top" src={offer.photo} width="100%" style={{ borderRadius: "1px", margin: "20px" }} />
+        </Col>
+        <Col md={{ offset: 1 }}>
+          <h1>{offer.title}</h1>
+          <div className="mb-2">
+            {offer.categorys.map(category => (
+              <span>{category.name}</span>
+            ))}
           </div>
+
+          <h3>Overview</h3>
+          <p>{offer.description}</p>
+        </Col>
+      </Row>
         {localStorage.tokenOffers ? (
           <>
             <Row className="mt-5">
-              <h3>Comments</h3>
-
+              <h3 style={{marginLeft: "20px"}}>Comments</h3>
+              <hr />
               {offer.comments.map(comment => (
                 <Card style={{ margin: 20, maxWidth: 1100 }}>
                   <Row>
@@ -56,9 +72,7 @@ function OneOffer() {
             </Row>
           </>
         ) : null}
-        </div>
-        </div>
-      </body>
+        
     </>
   )
 }

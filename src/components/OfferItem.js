@@ -13,11 +13,12 @@ function OfferItem(props) {
   const [editShow, setEditShow] = useState(false)
 
   return (
-    <body style={{ background: "#eee" }}>
-      <div class="container mt-5 mb-5 ">
+    <body style={{ background: "rgb(248, 248, 248)" }}>
+      <div class="container mt-2 mb-1 ">
         <div class="d-flex justify-content-center row">
           <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
+              <small>Offer!</small>
               <div class="col-md-3 mt-1">
                 <Link to={`/offer/${offer._id}`}>
                   <img
@@ -81,7 +82,7 @@ function OfferItem(props) {
                         view
                       </Button>
                     </Link>
-                    <Link to={`/offer/${offer._id}`} style={{ textDecoration: "none" }}>
+                    <Link to={`/message/${offer.owner._id}`} style={{ textDecoration: "none" }}>
                       <Button
                         variant="outline-primary"
                         style={{

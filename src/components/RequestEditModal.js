@@ -43,14 +43,6 @@ function RequestsEditModal(props) {
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
-              Price
-            </Form.Label>
-            <Col md="8">
-              <Form.Control type="number" name="price" defaultValue={request.price} required />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column md="3">
               Phone Number
             </Form.Label>
             <Col md="8">
@@ -62,23 +54,16 @@ function RequestsEditModal(props) {
               Category
             </Form.Label>
             <Col md="8">
-              <Form.Select name="categorys" onChange={(e) => setCurrentCategoryId(e.target.value)}>
-                {categorys.map(categoryObject => (
-                  <option value={categoryObject._id}>{categoryObject.name}</option>
-                ))}
-              </Form.Select>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column md="3">
-              SubCategory
-            </Form.Label>
-            <Col md="8">
-              <Form.Select name="subCategories">
-                {currentCategory?.subCategories.map(subcategoryObject => (
-                  <option value={subcategoryObject._id}>{subcategoryObject.name}</option>
-                ))}
-              </Form.Select>
+              {categorys.map(categoryObject => (
+                <Row>
+                  <Col md="2">
+                    <Form.Check type="checkbox" name="categorys" value={categoryObject._id} />
+                  </Col>
+                  <Col md="2">
+                    <span>{categoryObject.name}</span>
+                  </Col>
+                </Row>
+              ))}
             </Col>
           </Form.Group>
         </Modal.Body>

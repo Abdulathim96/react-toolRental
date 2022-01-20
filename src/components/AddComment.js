@@ -18,7 +18,6 @@ function AddComment(props) {
             <Form.Control as="textarea" name="comment" required />
           </Col>
         </Form.Group>
-
         <Form.Group as={Row} className="my-4">
           <Col md={{ span: 10, offset: 2 }}>
             <Button type="submit">Add</Button>
