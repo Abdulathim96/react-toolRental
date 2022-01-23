@@ -25,7 +25,7 @@ function Home(props) {
           <body id="page-top">
         <header class="masthead">
           <div class="container">
-            <div class="masthead-subheading">Welcome To Our Studio!</div>
+            <div class="masthead-subheading">Welcome To Our Site!</div>
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <a class="btn btn-primary btn-xl text-uppercase" href="#services">
               Tell Me More
@@ -43,7 +43,7 @@ function Home(props) {
                 <Link to="/offers">
                   <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa-box-open-full fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-box-open fa-stack-1x fa-inverse"></i>
                   </span>
                 </Link>
                 <h4 class="my-3">Offer</h4>
@@ -53,7 +53,7 @@ function Home(props) {
                 <Link to="/requests">
                   <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-add fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-question fa-stack-1x fa-inverse"></i>
                   </span>
                 </Link>
                 <h4 class="my-3">Request</h4>
@@ -75,69 +75,13 @@ function Home(props) {
         <section class="page-section bg-light" id="portfolio">
           <div class="container">
             <div class="text-center">
-              <h2 class="section-heading text-uppercase">Portfolio</h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                  <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                    <div class="portfolio-hover">
-                      <div class="portfolio-hover-content">
-                        <i class="fas fa-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src={portfolio1} alt="..." />
-                  </a>
-                  <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Threads</div>
-                    <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                  <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                      <div class="portfolio-hover-content">
-                        <i class="fas fa-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src={portfolio2} alt="..." />
-                  </a>
-                  <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Threads</div>
-                    <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                  <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                      <div class="portfolio-hover-content">
-                        <i class="fas fa-plus fa-3x"></i>
-                      </div>
-                    </div>
-                    <img class="img-fluid" src={portfolio2} alt="..." />
-                  </a>
-                  <div class="portfolio-caption">
-                    <div class="portfolio-caption-heading">Explore</div>
-                    <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item"></div>
-              </div>
+            <h2 class="section-heading text-uppercase">About</h2>              
             </div>
           </div>
         </section>
         <section class="page-section" id="about">
           <div class="container">
             <div class="text-center">
-              <h2 class="section-heading text-uppercase">About</h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <ul class="timeline">
               <li>
@@ -210,12 +154,6 @@ function Home(props) {
             </ul>
           </div>
         </section>
-        
-        {/* <section class="page-section" id="contact">
-          <div class="container">
-            
-          </div>
-        </section> */}
         <footer class="footer py-4" style={{ backgroundColor: "rgb(44, 52, 64)", color: "#eee"}}>
           <div class="container">
             <div class="row align-items-center">
@@ -255,9 +193,8 @@ function Home(props) {
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">BBBootstrap.com</h5>
+                <h5 class="white-text"></h5>
                 <p class="grey-text text-lighten-4">
-                  House of cool code snippets, With the increase demand of online customers.
                 </p>
               </div>
               <div class="col l4 offset-l1 s12">
@@ -339,17 +276,13 @@ function Home(props) {
           </div>
           <div class="footer-copyright">
             <div class="container">
-              {" "}
-              © 2019 Copyright BBBootstrap.com{" "}
               <a class="grey-text text-lighten-4 right" href="#!">
-                House of cool code snippet!
-              </a>{" "}
+              </a>
             </div>
           </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
-
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
       </body>
     </>

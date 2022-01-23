@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify"
 import { Link, useParams } from "react-router-dom"
 import AddDmMessage from "../components/AddDmMessage"
 import ToolRentelContext from "../utils/ToolRentelContext"
+import img11 from "../assets/11.jpg"
 
 function Message() {
   const { profile } = useContext(ToolRentelContext)
@@ -62,27 +63,30 @@ function Message() {
   }
 
   return (
-    <section style={{ backgroundColor: "#eee" }}>
-      <div class="container py-5">
-        <Row>
-          <Col md="2">
-            <h2>conversations</h2>
+      <body style={{backgroundColor: "rgb(44, 52, 64)"}}>
+                <div class="container py-5" style={{backgroundColor: "rgb(44, 52, 64)"}}>
+        <Row style={{backgroundColor: "rgb(248, 248, 248)"}}>
+          <Col md="2" style={{backgroundColor: "rgb(44, 52, 64)"}}>
+            <h4 style={{ marginTop: 50 , color: "#fff"}}><b>conversations</b></h4>
+            <hr />
+    
             {conversations.map(conversation => (
               <>
                 {conversation.sender?._id == profile?._id ? (
-                  <Link to={`/message/${conversation.receive?._id}`}>
+                  <Link to={`/message/${conversation.receive?._id}`} className="d-flex" style={{color: "#fff" , textDecoration: "none"}}>
                       <img src={conversation.receive?.avatar} alt=""  alt="avatar"
                             class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
-                            width="60" style={{clipPath: "circle()",width:"50px"}}/>
+                            width="60" style={{clipPath: "circle()",width:"50px", color: "#fff"}}/>
                     <p>{conversation.receive?.firstName}</p>
                   </Link>
                 ) : (
-                  <Link to={`/message/${conversation.sender?._id}`}>
+                    <Link to={`/message/${conversation.sender?._id}`} className="d-flex" style={{color: "#fff" ,textDecoration: "none"}}>
                     <p>{conversation.sender?.firstName}</p>
                   </Link>
                 )}
               </>
             ))}
+        
           </Col>
           <Col>
             <div class="row"style={{width: "100%",}}>
@@ -91,7 +95,7 @@ function Message() {
                   {messages.map(message => (
                     <>
                       {message.sender?._id == profile?._id ? (
-                        <li class="d-flex  mb-4">
+                        <li class="d-flex  mb-4" style={{ marginTop: 50}}>
                           <img
                             src={profile.avatar}
                             alt="avatar"
@@ -113,7 +117,7 @@ function Message() {
                           </div>
                         </li>
                       ) : (
-                        <li class="d-flex  mb-4">
+                        <li class="d-flex  mb-4" style={{ marginTop: 50}}>
                           <div class="card w-100">
                             <div class="card-header d-flex  p-3">
                               <p class="fw-bold mb-0">
@@ -144,7 +148,8 @@ function Message() {
           </Col>
         </Row>
       </div>
-    </section>
+      </body>
+
   )
 }
 

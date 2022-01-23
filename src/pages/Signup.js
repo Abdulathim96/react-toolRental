@@ -27,7 +27,7 @@ function SignUp() {
                 <h1>Sign Up</h1>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="formBasicFirstName">
                 <Form.Control placeholder="First Name" name="firstName" type="text" required />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicLastName">
@@ -35,6 +35,9 @@ function SignUp() {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control placeholder="Email" type="email" name="email" required />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
+                <Form.Control placeholder="Phone number" type="text" name="phoneNumber" required />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control placeholder="password" type="password" name="password" required />

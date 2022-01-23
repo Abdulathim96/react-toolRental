@@ -39,13 +39,24 @@ function OneOffer() {
               <span>{category.name}</span>
             ))}
           </div>
-
-          <h3>Overview</h3>
+          <h6>{offer.price}$ for a day</h6>
+          <h3>Description</h3>
           <p>{offer.description}</p>
         </Col>
       </Row>
         {localStorage.tokenOffers ? (
           <>
+              <Link to={`/message/${offer.owner._id}`} style={{ textDecoration: "none" }}>
+                      <Button
+                        variant="outline-primary"
+                        style={{
+                          marginTop: "20px",
+                          padding: "3px 43px",
+                        }}
+                      >
+                        message
+                      </Button>
+                    </Link>
             <Row className="mt-5">
               <h3 style={{marginLeft: "20px"}}>Comments</h3>
               <hr />

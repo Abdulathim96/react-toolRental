@@ -8,6 +8,8 @@ import MyDropdown from "./MyDropdown"
 import { HiOutlineLogout } from 'react-icons/hi';
 import { HiOutlineLogin } from 'react-icons/hi';
 import { CgProfile } from 'react-icons/cg';
+import {BsFillEnvelopeFill} from "react-icons/bs"
+
 
 
 function NavbarItem() {
@@ -17,13 +19,13 @@ function NavbarItem() {
     <Navbar variant="dark" expand="lg" style={{ backgroundColor: "rgb(34, 40, 49)", zIndex:"100"}}>
       <Container>
         <Link to="/" className="navbar-brand d-flex align-items-center">
-          <span>
+          {/* <span>
             <img
-              src="https://cdn.dribbble.com/users/39316/screenshots/6122607/tr_logo_mark.png"
-              width={50}
+              src="https://dynamic.brandcrowd.com/preview/logodraft/85523418-ca90-4f99-9e35-2f1437b0a82d/image/large.png"
+              width={200}
             />
-          </span>
-          Tool Rental
+          </span> */}
+        <b>Tool Rental.</b> 
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -34,19 +36,12 @@ function NavbarItem() {
             <Link className="nav-link" to="/requests">
               Requests
             </Link>
+            <MyDropdown />
             {localStorage.tokenOffers ? (
-            <Link className="nav-link" to="/message">
-              Messages
+            <Link className="nav-link" to="/message" style={{marginLeft: 10}}>
+              <BsFillEnvelopeFill />
             </Link>
             ):null}
-            {/* <NavDropdown title="Categories" id="basic-nav-dropdown">
-              {categorys.map(category => (
-                <Link to={`/offers?cat=${category.name}`} className="dropdown-item">
-                  {category.name}
-                </Link>
-              ))}
-            </NavDropdown> */}
-            <MyDropdown />
           </Nav>
           {localStorage.tokenOffers ? (
             <Nav className="ms-auto">

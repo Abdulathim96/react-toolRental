@@ -44,7 +44,7 @@ function RequestAddModal(props) {
               <Form.Control type="text" name="phoneNumber" required />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
+          {/* <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
               Category
             </Form.Label>
@@ -60,7 +60,7 @@ function RequestAddModal(props) {
                 </Row>
               ))}
             </Col>
-          </Form.Group>
+          </Form.Group> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShow(false)}>

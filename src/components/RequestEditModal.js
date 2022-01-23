@@ -49,7 +49,7 @@ function RequestsEditModal(props) {
               <Form.Control type="text" name="phoneNumber" defaultValue={request.phoneNumber} required />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
+          {/* <Form.Group as={Row} className="mb-3">
             <Form.Label column md="3">
               Category
             </Form.Label>
@@ -65,7 +65,7 @@ function RequestsEditModal(props) {
                 </Row>
               ))}
             </Col>
-          </Form.Group>
+          </Form.Group> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShow(false)}>

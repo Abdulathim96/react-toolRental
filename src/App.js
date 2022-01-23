@@ -133,19 +133,19 @@ function App() {
     try {
       const form = e.target
 
-      const categorys = []
-      form.elements.categorys.forEach(category => {
-        if (category.checked) {
-          categorys.push(category.value)
-        }
-      })
+      // const categorys = []
+      // form.elements.categorys.forEach(category => {
+      //   if (category.checked) {
+      //     categorys.push(category.value)
+      //   }
+      // })
 
       const requestBody = {
         title: form.elements.title.value,
         description: form.elements.description.value,
         photo: form.elements.photo.value,
         phoneNumber: form.elements.phoneNumber.value,
-        categorys: categorys,
+        // categorys: categorys,
       }
       await axios.post(`http://localhost:5000/api/requests`, requestBody, {
         headers: {
@@ -164,19 +164,19 @@ function App() {
     try {
       const form = e.target
 
-      const categorys = []
-      form.elements.categorys.forEach(category => {
-        if (category.checked) {
-          categorys.push(category.value)
-        }
-      })
+      // const categorys = []
+      // form.elements.categorys.forEach(category => {
+      //   if (category.checked) {
+      //     categorys.push(category.value)
+      //   }
+      // })
 
       const requestBody = {
         title: form.elements.title.value,
         description: form.elements.description.value,
         photo: form.elements.photo.value,
         phoneNumber: form.elements.phoneNumber.value,
-        categorys: categorys,
+        // categorys: categorys,
       }
       await axios.put(`http://localhost:5000/api/requests/${requestId}`, requestBody, {
         headers: {
@@ -265,6 +265,7 @@ function App() {
         firstName: form.elements.firstName.value,
         lastName: form.elements.lastName.value,
         email: form.elements.email.value,
+        phoneNumber:form.elements.phoneNumber.value,
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
       }

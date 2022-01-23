@@ -55,7 +55,7 @@ function OfferItem(props) {
               </div>
               <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                 <div class="d-flex flex-row align-items-center">
-                  <p class="mr-1">{offer.price}$ for one Day</p>
+                  <p class="mr-1">{offer.price}$ for a day</p>
                 </div>
                 {inProfile ? (
                   <div class="d-flex flex-column mt-4">
