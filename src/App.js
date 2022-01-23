@@ -101,7 +101,7 @@ function App() {
       }
       await axios.put(`http://localhost:5000/api/offers/${offerId}`, offerBody, {
         headers: {
-          Authorization: localStorage.tokenDashboardOffers,
+          Authorization: localStorage.tokenOffers,
         },
       })
       getOffers()
@@ -115,7 +115,7 @@ function App() {
     try {
       await axios.delete(`http://localhost:5000/api/offers/${offerId}`, {
         headers: {
-          Authorization: localStorage.tokenDashboardOffers,
+          Authorization: localStorage.tokenOffers,
         },
       })
       toast.success("offer deleted")
